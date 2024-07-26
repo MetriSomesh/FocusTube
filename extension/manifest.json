@@ -1,26 +1,26 @@
 {
-    "name":"Focus Tube",
-    "version":"1.0",
-    "description":"Enabling focus mode to boost productivity",
-    "permissions":["storage","tabs"],
-    "host_permissions":["https://*.youtube.com/*"],
-    "background":{
-    "service_worker":"background.js"
+    "manifest_version": 3,
+    "name": "Focus Tube",
+    "version": "1.0",
+    "icons":{
+        "16":"./assets/f16.png",
+        "48":"./assets/f48.png",
+        "128":"./assets/f128.png"
     },
-    "content_scripts":{
-    "matches":["https://*.youtube.com/*"],
-    "js":["contentScript.js"]
+    "description": "Enabling focus mode to boost productivity",
+    "permissions": ["storage", "tabs", "activeTab"],
+    "host_permissions": ["https://*.youtube.com/*"],
+    "background": {
+        "service_worker": "background.js"
     },
-    "action":{
-    "default_icon":{
-    "16":"../assets/f16.png",
-    "48":"../assets/f48.png",
-    "128":"../assets/f128.png"
-    },
-    "default_title":"FocusTube",
-    "default_popup":"index.html"
-    },
-    "manifest_version":3
-
+    "content_scripts": [{
+        "matches": ["https://*.youtube.com/*"],
+        "js": ["contentScript.js"],
+        "css": ["styles.css"]
+    }],
+    "action": {
+        "default_title": "FocusTube",
+        "default_popup": "./index.html"
+       
+    }
 }
-    
